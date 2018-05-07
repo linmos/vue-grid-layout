@@ -2,7 +2,7 @@
 
 vue-grid-layout is a grid layout system, like [Gridster](http://dsmorse.github.io/gridster.js/), for Vue.js. **Heavily inspired in [React-Grid-Layout](https://github.com/STRML/react-grid-layout)**
 
-### **Current version:** 2.1.12 (Supports Vue 2.2+)
+### **Current version:** 2.1.13 (Supports Vue 2.2+)
 
 ### **For Vue 2.1.10 and below use version [2.1.3](https://github.com/jbaysolutions/vue-grid-layout/tree/2.1.3)**
 ### **For Vue 1 use version [1.0.3](https://github.com/jbaysolutions/vue-grid-layout/tree/1.0.3)** 
@@ -442,8 +442,8 @@ Working example [here](https://jbaysolutions.github.io/vue-grid-layout/examples/
     Every time an item is being resized and changes size
  
 ```javascript
-    resizeEvent: function(i, newH, newW){
-        console.log("RESIZE i=" + i + ", H=" + newH + ", W=" + newW);
+    resizeEvent: function(i, newH, newW, newHPx, newWPx){
+        console.log("RESIZE i=" + i + ", H=" + newH + ", W=" + newW + ", H(px)=" + newHPx + ", W(px)=" + newWPx);
     },
 ``` 
 
