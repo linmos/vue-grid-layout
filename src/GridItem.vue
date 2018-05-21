@@ -219,7 +219,9 @@
                 innerX: this.x,
                 innerY: this.y,
                 innerW: this.w,
-                innerH: this.h
+                innerH: this.h,
+
+                initResized: false,
             }
         },
         created () {
@@ -303,6 +305,7 @@
                 this.resizable = this.isResizable;
             }
             this.useCssTransforms = this.$parent.useCssTransforms;
+
             this.createStyle();
         },
         watch: {
@@ -454,6 +457,14 @@
                 }
                 this.style = style;
 
+                if (!this.initResized) {
+                  if (this.w > 0 && this.h > 0 && pos.width > 0 && pos.height > 0) {
+                    this.initResized = true;
+                    setTimeout(() => {
+                      this.$emit('resized', this.i, pos.width, pos.height);
+                    }, 0);
+                  }
+                }
             },
             handleResize: function (event) {
                 const position = getControlPosition(event);
